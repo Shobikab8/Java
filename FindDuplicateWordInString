@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class DuplicateWordInStrings {
+
+	public static void main(String[] args) {
+		Scanner scan= new Scanner(System.in);
+		String s = scan.nextLine();
+		scan.close();
+		s = s.toLowerCase();
+		int dupCount=0;
+		int c=0;
+		String words[] = s.split(" ");
+		String[] duplicate= new String[words.length/2];
+		for(int i=0; i<words.length-1; i++) {
+			for(int j=i+1; j<words.length; j++) {
+				if(words[i].equals(words[j]) && !(words[i].equals("0"))) {
+					duplicate[c]=words[j];
+					words[j]="0";
+					dupCount+=1;
+					c++;
+					
+				}
+			}
+		}
+		if(dupCount>0) {
+			for(int k=0; k<duplicate.length; k++) {
+				System.out.println(duplicate[k]);
+			}
+			
+		}
+		else {
+			System.out.println("No duplicates found");
+		}
+	}
+
+}
