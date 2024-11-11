@@ -24,7 +24,9 @@ public class DuplicateWordInStrings {
 		}
 		if(dupCount>0) {
 			for(int k=0; k<duplicate.length; k++) {
-				System.out.println(duplicate[k]);
+				if(duplicate[k]!=null) {
+					System.out.println(duplicate[k]);
+				}
 			}
 			
 		}
