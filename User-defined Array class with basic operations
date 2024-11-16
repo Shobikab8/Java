@@ -1,0 +1,56 @@
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        Array array = new Array(3);
+        array.insert(10);
+        array.insert(20);
+        array.insert(30);
+        array.insert(40);
+        array.removeAt(3);
+        array.print();
+        System.out.println(array.indexOf(20));
+    }
+}
+
+class Array{
+    private int[] arr;
+    public Array(int len){
+        arr = new int[len];
+    }
+     
+    private int index=0;
+    void insert(int a){
+        if(index>=arr.length){
+            arr = Arrays.copyOf(arr, arr.length+1);
+        }
+        arr[index] = a;
+        index++;
+    }
+    void print(){
+        for(int i : arr){
+            System.out.println(i);
+        }
+    }
+    void removeAt(int index){
+        int[] arr1 = new int[arr.length-1]; 
+        int index1=0;
+        for(int i=0; i<arr.length; i++){
+            if(i==index){
+                continue;
+            }
+            arr1[index1] = arr[i];
+            index1++;
+        }
+        arr = Arrays.copyOf(arr1, arr1.length);
+    }
+    
+    int indexOf(int number){
+        int num = 0;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] == number){
+                num=i;
+            }
+        }
+        return num;
+    }
+}
