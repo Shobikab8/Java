@@ -19,6 +19,7 @@ class Array{
     }
      
     private int index=0;
+//inserts data into array by expanding its size
     void insert(int a){
         if(index>=arr.length){
             arr = Arrays.copyOf(arr, arr.length+1);
@@ -26,11 +27,15 @@ class Array{
         arr[index] = a;
         index++;
     }
+
+//prints all values stored in array
     void print(){
         for(int i : arr){
             System.out.println(i);
         }
     }
+
+//removes data stored at the specified array and reduces its size
     void removeAt(int index){
         int[] arr1 = new int[arr.length-1]; 
         int index1=0;
@@ -43,14 +48,10 @@ class Array{
         }
         arr = Arrays.copyOf(arr1, arr1.length);
     }
-    
+
+//returns the index of the data provided - if not found returns -1
     int indexOf(int number){
-        int num = 0;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] == number){
-                num=i;
-            }
-        }
-        return num;
+        int num = Arrays.binarySearch(arr, number);
+        return num >= 0 ? num : -1 ;
     }
 }
